@@ -17,3 +17,28 @@ public class Test{
 }
 ```
 
+## 斐波那契数列
+
+```java
+// 斐波那契数列
+// 1,1,2,3,5,8
+public class Test{
+    public static void main(String[] args){
+        int result = Test.fbi(5);
+        System.out.println(result);
+    }
+    
+    public static int fbi(int i){
+        if(i == 1 || i == 2){
+            return i;
+        }else{
+            return fbi(i-1) + fbi(i-2);
+        }
+    }
+}
+```
+
+递归方法栈图解
+
+![](../doc/01.png)
+
