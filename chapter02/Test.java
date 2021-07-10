@@ -1,24 +1,36 @@
 /*
-   final
-   final 修饰的类无法被继承
-   final 修饰的方法无法被覆盖
-   final 修饰的局部变量，一旦被赋值，不会再改变。
-   final 修饰的成员变量，必须显示的初始化。要求再构造方法结束之前赋值
-   final 修饰的成员变量一般和 static 连用, 避免资源浪费。
-   Java规定 public static final 修饰常量
+  抽象类
+  抽象类无法被实例化
+  虽然抽象类没有办法实例化，但是抽象类也有构造方法，该构造方法是给子类创建对象用的
+  抽象类中不一定有抽象方法，但是抽象方法必须出现再抽象类中。
+  非抽象的类继承抽象类，必须将抽象类中的方法覆盖重写。
 */
 
 public class Test{
     public static void main(String[] args){
-        
+        // 抽象类无法被实例化
+        // A a = new A();
+        A a = new B();
+        a.m1();
     }
 }
 
-final class A {
+
+abstract class A {  
+    A(){
+        System.out.println("A....");
+    }
     
+    public abstract void m1();
 }
 
-class B extends A {
+class B extends A{
+    B(){
+        // 这里有一行隐式的代码 super(); 调用父类的无参构造方法。 构造方法虽然调用了，但是并没有创建对象
+        System.out.println("B....");
+    }
     
-    
+    public void m1(){
+        System.out.println("抽象方法必须被重写");
+    }
 }
