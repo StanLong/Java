@@ -1,36 +1,26 @@
 /*
-  抽象类
-  抽象类无法被实例化
-  虽然抽象类没有办法实例化，但是抽象类也有构造方法，该构造方法是给子类创建对象用的
-  抽象类中不一定有抽象方法，但是抽象方法必须出现再抽象类中。
-  非抽象的类继承抽象类，必须将抽象类中的方法覆盖重写。
+  接口也是一种引用类型，可以等同的看作类
+  接口是一种特殊的抽象类，接口是完全抽象的，只有抽象方法和常量
+  接口没有构造方法，不能被实例化
+  接口和接口之间可以多继承
+  一个类可以实现多个接口
 */
 
-public class Test{
+/*public class Test{
     public static void main(String[] args){
-        // 抽象类无法被实例化
-        // A a = new A();
-        A a = new B();
-        a.m1();
     }
-}
+}*/
 
-
-abstract class A {  
-    A(){
-        System.out.println("A....");
-    }
+public interface Test{
+    public static final String SUCCESS = "success";
+    
+    // public static final可以省略
+    String FAILED = "failed";
     
     public abstract void m1();
-}
-
-class B extends A{
-    B(){
-        // 这里有一行隐式的代码 super(); 调用父类的无参构造方法。 构造方法虽然调用了，但是并没有创建对象
-        System.out.println("B....");
-    }
     
-    public void m1(){
-        System.out.println("抽象方法必须被重写");
-    }
+    // public abstract 是可以省略的
+    void m2();
+    
+    
 }
