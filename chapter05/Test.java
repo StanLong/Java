@@ -1,0 +1,42 @@
+/*
+    String
+    所有在Java中使用""括起来的字符串都会在字符串常量池中创建一份，字符串常量池在方法区中被存储
+*/
+public class Test{
+    
+    public static void main(String[] args){
+        String s1 = "Hello"; // 在字符串常量池中新建了一个"Hello" 对象， 该对象不变
+        String s2 = "Hello"; // 从字符串常量池中拿来直接用
+        System.out.println(s1 == s2); // true
+        
+        
+        
+        String s3 = new String("Hello"); 
+        String s4 = new String("Hello");
+        
+        // s3和s4是两个不同的字符串对象， == 比较的是内存地址，所以结果是false
+        System.out.println(s3 == s4);  // false
+        
+        // 比较两个字符串是否一致，必须使用String类提供的equals方法
+        System.out.println(s3.equals(s4)); // true
+        
+        // s2 和 s3创建字符串对象的区别
+        // s2 只在字符串常量池里创建一个对象
+        // s3 会在堆内存和字符串常量池里分别创建一个对象，浪费内存
+        
+        // 比如14，15行就在内存中创建了三个对象， 堆中两个，方法区字符串常量池中一个
+        
+        // 关于字符串的构造方法
+        byte[] bytes = {97, 98, 99, 100};
+        String s5 = new String(bytes);
+        String s6 = new String(bytes, 1, 2);
+        System.out.println(s5); // abcd
+        System.out.println(s6); // bc
+        
+        char[] c1 = {'我','是','中','国','人'};
+        String s7 = new String(c1);
+        String s8 = new String(c1, 2, 2);
+        System.out.println(s7); // 我是中国人
+        System.out.println(s8); // 中国
+    }
+}
