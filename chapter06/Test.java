@@ -1,23 +1,19 @@
 /*
-    集合
+    List
+    1. 有序
+    2. 可重复
+    ArrayList 和 Vector 底层默认初始化容量是10
+    ArryList 扩大之后的容量是原容量的1.5倍
+    Vector 扩大之后的容量是原容量的2倍
+    
 */
 
 import java.util.*;
 public class Test{
     
     public static void main(String[] args) throws Exception{
-        // 创建集合对象
-        Collection c = new LinkedList();
-        c.add(100);
-        c.add(3.14);
-        c.add(false);
+        // 创建List
         
-        Iterator it = c.iterator(); // c 集合
-        
-        while(it.hasNext()){
-            Object element = it.next();
-            System.out.println(element);
-        }
-        
+
     }
 }
